@@ -3,7 +3,8 @@ BOARD_SEPOLICY_DIRS += \
        device/sony/sepolicy \
        device/sony/sepolicy/common \
        device/sony/sepolicy/test \
-       device/sony/sepolicy/$(TARGET_BOARD_PLATFORM)
+       device/sony/sepolicy/$(TARGET_BOARD_PLATFORM) \
+       device/sony/sepolicy/sony
 
 BOARD_SEPOLICY_UNION += \
        genfs_contexts \
@@ -91,6 +92,12 @@ BOARD_SEPOLICY_UNION += \
        hbtp.te \
        kernel.te \
        vold.te
+
+BOARD_SEPOLICY_UNION += \
+       sct.te \
+       ta_qmi.te \
+       tad.te \
+       thermanager.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
