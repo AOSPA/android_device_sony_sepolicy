@@ -7,5 +7,7 @@ type netd_prop, property_type;
 
 type boot_animation_prop, property_type;
 
+type perfd_prop, property_type;
+
 type tee_prop, property_type;
 type timekeep_prop, property_type;
