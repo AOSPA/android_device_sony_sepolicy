@@ -1,0 +1,1 @@
+allow audioserver mpctl_socket:dir r_dir_perms;
