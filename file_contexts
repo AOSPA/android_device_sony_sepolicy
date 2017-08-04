@@ -8,33 +8,6 @@
 /dev/tfa98xx                                    u:object_r:audio_device:s0
 /dev/ttyHS0                                     u:object_r:hci_attach_dev:s0
 
-###################################
-# Dev block nodes
-#
-/dev/block/mmcblk0p1                                                   u:object_r:trim_area_partition_device:s0
-/dev/block/platform(/soc\.0|/soc)?/7464900\.sdhci/by-name/TA           u:object_r:trim_area_partition_device:s0
-/dev/block/platform(/soc\.0|/soc)?/7824900\.sdhci/by-name/TA           u:object_r:trim_area_partition_device:s0
-/dev/block/platform(/soc\.0|/soc)?/f9824900\.sdhci/by-name/TA          u:object_r:trim_area_partition_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/TA                             u:object_r:trim_area_partition_device:s0
-/dev/block/bootdevice/by-name/TA                                       u:object_r:trim_area_partition_device:s0
-
-/dev/block/platform(/soc\.0|/soc)?/7464900\.sdhci/by-name/FOTAKernel   u:object_r:recovery_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/7824900\.sdhci/by-name/FOTAKernel   u:object_r:recovery_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/f9824900\.sdhci/by-name/FOTAKernel  u:object_r:recovery_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/FOTAKernel                     u:object_r:recovery_block_device:s0
-/dev/block/bootdevice/by-name/FOTAKernel                               u:object_r:recovery_block_device:s0
-
-/dev/block/platform(/soc\.0|/soc)?/7464900\.sdhci/by-name/apps_log     u:object_r:misc_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/7824900\.sdhci/by-name/apps_log     u:object_r:misc_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/f9824900\.sdhci/by-name/misc        u:object_r:misc_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/apps_log                       u:object_r:misc_block_device:s0
-/dev/block/bootdevice/by-name/apps_log                                 u:object_r:misc_block_device:s0
-
-/dev/block/platform(/soc\.0|/soc)?/7464900\.sdhci/by-name/persist      u:object_r:persist_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/7824900\.sdhci/by-name/persist      u:object_r:persist_block_device:s0
-/dev/block/platform(/soc\.0|/soc)?/f9824900\.sdhci/by-name/persist     u:object_r:persist_block_device:s0
-
-###################################
 # Dev socket nodes
 #
 /dev/socket/tad                                 u:object_r:tad_socket:s0
@@ -47,6 +20,7 @@
 /system/bin/thermanager                         u:object_r:thermanager_exec:s0
 /system/bin/timekeep                            u:object_r:timekeep_exec:s0
 /system/bin/tfa9890_amp                         u:object_r:tfa_amp_exec:s0
+/system/vendor/bin/adsprpcd                     u:object_r:adsprpcd_exec:s0
 /system/vendor/bin/irsc_util                    u:object_r:irsc_util_exec:s0
 /system/vendor/bin/mlog_qmi_service             u:object_r:mlog_qmi_exec:s0
 /system/vendor/bin/mm-qcamera-daemon            u:object_r:mm-qcamerad_exec:s0
@@ -163,3 +137,8 @@
 /proc/bluetooth/sleep/proto                             u:object_r:sysfs_bluetooth_writable:s0
 /proc/bluetooth/sleep/lpm                               u:object_r:sysfs_bluetooth_writable:s0
 /proc/bluetooth/sleep/btwrite                           u:object_r:sysfs_bluetooth_writable:s0
+
+###################################
+# adsp files
+#
+/dsp(/.*)?                                                          u:object_r:adsprpcd_file:s0
