@@ -3,3 +3,5 @@ dontaudit surfaceflinger kernel:system module_request;
 allow surfaceflinger debugfs_ion:dir search;
 
 rw_dir_file(surfaceflinger, sysfs_graphics)
+
+allow surfaceflinger oemfs:dir search;
