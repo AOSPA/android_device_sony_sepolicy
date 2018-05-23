@@ -60,7 +60,6 @@
 /odm/bin/tad_static                             u:object_r:tad_exec:s0
 /odm/bin/ta_qmi_service                         u:object_r:ta_qmi_exec:s0
 /odm/bin/tftp_server                            u:object_r:tad_exec:s0
-/odm/bin/xtra-daemon                            u:object_r:location_exec:s0
 /odm/bin/cnss-daemon                            u:object_r:wcnss_service_exec:s0
 /odm/firmware(/.*)?                             u:object_r:vendor_firmware_file:s0
 
@@ -78,7 +77,6 @@
 /(system/vendor|vendor)/bin/cashsvr                                                          u:object_r:cashsvr_exec:s0
 /(system/vendor|vendor)/bin/thermanager                                                      u:object_r:thermanager_exec:s0
 /(system/vendor|vendor)/bin/timekeep                                                         u:object_r:timekeep_exec:s0
-/(system/vendor|vendor)/bin/odmcheck                                                         u:object_r:odmcheck_exec:s0
 /(system/vendor|vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.sony u:object_r:hal_fingerprint_default_exec:s0
 /(system/vendor|vendor)/bin/hw/android\.hardware\.gnss@1\.0-service-qti                      u:object_r:hal_gnss_qti_exec:s0
 /(system/vendor|vendor)/bin/hw/android\.hardware\.light@2\.0-service\.sony                   u:object_r:hal_light_default_exec:s0
@@ -124,7 +122,6 @@
 # data files
 # TODO: Modify binaries to use /data/vendor/*
 /data/time(/.*)?                       u:object_r:timekeep_vendor_data_file:s0
-/data/misc/netmgr(/.*)?                u:object_r:netmgr_data_file:s0
 /data/misc/radio(/.*)?                 u:object_r:radio_vendor_data_file:s0
 /data/misc/sensors(/.*)?               u:object_r:sensors_vendor_data_file:s0
 /data/vendor/netmgr(/.*)?              u:object_r:netmgr_data_file:s0
