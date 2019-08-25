@@ -1,10 +1,5 @@
 type netmgrd, domain;
 type netmgrd_exec, exec_type, vendor_file_type, file_type;
-# TODO(b/netmgrd-system): Remove this once netutils does not
-# execute system files,
-not_full_treble(`
-  typeattribute netmgrd vendor_executes_system_violators;
-')
 
 net_domain(netmgrd)
 init_daemon_domain(netmgrd)
@@ -50,10 +45,10 @@ allow netmgrd qmuxd_socket:sock_file create_file_perms;
 unix_socket_connect(netmgrd, qmuxd, qmuxd)
 
 userdebug_or_eng(`
-  allow netmgrd diag_device:chr_file { read write };
+  allow netmgrd diag_device:chr_file { ioctl open read write };
 ')
 # Ignore in user builds
-dontaudit netmgrd diag_device:chr_file { read write };
+dontaudit netmgrd diag_device:chr_file { ioctl open read write };
 
 allow netmgrd sysfs_net:dir r_dir_perms;
 allow netmgrd sysfs_net:file rw_file_perms;
@@ -66,20 +61,6 @@ allow netmgrd proc_net:file rw_file_perms;
 
 allow netmgrd netmgr_vendor_data_file:dir rw_dir_perms;
 allow netmgrd netmgr_vendor_data_file:file create_file_perms;
-
-# Allow execution of commands in shell
-# TODO(b/netmgrd-system): Remove this once netmgrd does not execute
-# system files, it's a neverallow on Q without
-# vendor_executes_system_violators
-not_full_treble(`
-  allow netmgrd system_file:file x_file_perms;
-')
-
-# Acquire lock on /system/etc/xtables.lock
-# TODO(b/netutils-lock): Required till netutils wrappers are available
-not_full_treble(`
-  allow netmgrd system_file:file lock;
-')
 
 allow netmgrd vendor_toolbox_exec:file rx_file_perms;
 
